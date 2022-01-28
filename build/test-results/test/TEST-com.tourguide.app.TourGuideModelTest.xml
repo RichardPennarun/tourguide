@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tourguide.app.TourGuideModelTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2022-01-28T21:49:31" hostname="iMac-de-Admin.local" time="0.416">
+  <properties/>
+  <testcase name="setRewardTest" classname="com.tourguide.app.TourGuideModelTest" time="0.384"/>
+  <testcase name="getVisitedLocationTest" classname="com.tourguide.app.TourGuideModelTest" time="0.004"/>
+  <testcase name="getUserPreferencesTest" classname="com.tourguide.app.TourGuideModelTest" time="0.002"/>
+  <testcase name="setTripDealTest" classname="com.tourguide.app.TourGuideModelTest" time="0.015"/>
+  <testcase name="setAttractionTest" classname="com.tourguide.app.TourGuideModelTest" time="0.001"/>
+  <testcase name="getAttractionTest" classname="com.tourguide.app.TourGuideModelTest" time="0.0"/>
+  <testcase name="setVisitedLocationTest" classname="com.tourguide.app.TourGuideModelTest" time="0.001"/>
+  <testcase name="setUserPreferencesTest" classname="com.tourguide.app.TourGuideModelTest" time="0.0"/>
+  <testcase name="getTripRequestTest" classname="com.tourguide.app.TourGuideModelTest" time="0.002"/>
+  <testcase name="setTripRequestTest" classname="com.tourguide.app.TourGuideModelTest" time="0.0"/>
+  <testcase name="getRewardTest" classname="com.tourguide.app.TourGuideModelTest" time="0.0"/>
+  <testcase name="getTripDealTest" classname="com.tourguide.app.TourGuideModelTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

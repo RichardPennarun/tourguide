@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TourGuideController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">com.tourguide.app</a> &gt; <span class="el_source">TourGuideController.java</span></div><h1>TourGuideController.java</h1><pre class="source lang-java linenums">package com.tourguide.app;
+
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tourguide.app.model.Attraction;
+import com.tourguide.app.model.TripDeal;
+import com.tourguide.app.model.UserPreferences;
+import com.tourguide.app.model.VisitedLocation;
+import com.tourguide.app.service.TourGuideService;
+
+@RestController
+<span class="nc" id="L20">public class TourGuideController {</span>
+
+	
+	@Autowired
+	TourGuideService tourGuideService;
+	
+    @RequestMapping(&quot;/&quot;)
+    public String index() {
+<span class="nc" id="L28">        return &quot;Greetings from TourGuide!&quot;;</span>
+    }
+    
+    /*
+   	 * 
+   	 * API TourGuideLocation
+   	 * 
+   	 */
+    
+    /*
+	 * Read - Get current GPS location
+	 * @param Id The user id
+	 * @return An object VisitedLocation that has bean saved
+	 */
+	@RequestMapping(&quot;/getCurrentLocation/{userId}&quot;) 
+	public VisitedLocation getCurrentLocation(@PathVariable(&quot;userId&quot;) final UUID userId) { 
+<span class="nc" id="L44">		VisitedLocation visitedLocation = tourGuideService.getCurrentLocation(userId); </span>
+<span class="nc" id="L45">		return visitedLocation; </span>
+	}
+
+	/*
+	 * Read - Get last GPS location saved
+	 * @param Id The user id
+	 * @return An object VisitedLocation
+	 */
+	@RequestMapping(&quot;/getLastLocation/{userId}&quot;)
+    public VisitedLocation getLastLocations(@PathVariable(&quot;userId&quot;) final UUID userId) {
+<span class="nc" id="L55">    	VisitedLocation lastVisitedLocation = tourGuideService.getLastLocation(userId);</span>
+<span class="nc" id="L56">    	return lastVisitedLocation;</span>
+    }
+    
+	/*
+	 * Read Get all users last location
+	 * @return A list of objects VisitedLocation
+	 */
+	@RequestMapping(&quot;/getAllCurrentLocations&quot;)
+    public List&lt;VisitedLocation&gt; getAllCurrentLocations() {
+<span class="nc" id="L65">    	List&lt;VisitedLocation&gt; lastVisitedLocations = tourGuideService.getAllCurrentLocations();</span>
+<span class="nc" id="L66">    	return lastVisitedLocations;</span>
+    }
+	
+	
+
+    /*
+   	 * 
+   	 * API TourGuideAttraction
+   	 * 
+   	 */
+	
+	/*
+	 * Read - Get 5 Attractions that are the closest to user last saved location
+	 * @param Id The user id
+	 * @return A list of objects Attraction full filled (with reward points and distance to user)
+	 */
+	@RequestMapping(&quot;/getNearbyAttractions/{userId}&quot;) 
+	public List&lt;Attraction&gt; getNearbyAttractions(@PathVariable(&quot;userId&quot;) final UUID userId) { 
+<span class="nc" id="L84">		List&lt;Attraction&gt; attractions = tourGuideService.getNearByAttractions(userId); </span>
+<span class="nc" id="L85">		return attractions;</span>
+	}
+	
+	/*
+	 * Read - Get reward points for an Attraction
+	 * @param String The Attraction name
+	 * @return An object Attraction full filled
+	 */
+	@RequestMapping(&quot;/getRewardPointsByAttraction/{attractionName}&quot;) 
+    public Attraction getRewardPointsByAttraction(@PathVariable(&quot;attractionName&quot;) final String attractionName) {
+<span class="nc" id="L95">    	Attraction attractionWithReward = tourGuideService.getRewardPointsByAttraction(attractionName);</span>
+<span class="nc" id="L96">    	return attractionWithReward;</span>
+    }
+	
+	/*
+	 * Read - Get reward points for a User
+	 * @param Id The User id
+	 * @return Int The number of reward points
+	 */
+	@RequestMapping(&quot;/getRewardPointsByUser/{userId}&quot;) 
+    public int getRewardPointsByUser(@PathVariable(&quot;userId&quot;) final UUID userId) {
+<span class="nc" id="L106">    	int userRewardPoints = tourGuideService.getRewardPointsByUser(userId);</span>
+<span class="nc" id="L107">    	return userRewardPoints;</span>
+    }
+    
+	
+
+    /*
+   	 * 
+   	 * API TourGuidePricer
+   	 * 
+   	 */
+	
+	/*
+	 * Read - Get trip deals
+	 * @param userId and attractionId
+	 * @return A list of objects TripDeal
+	 */
+	@RequestMapping(&quot;/getTripDeals/{userId}/{attractionName}&quot;)
+    public List&lt;TripDeal&gt; getTripDeals(@PathVariable(&quot;userId&quot;) final UUID userId, 
+    		@PathVariable(&quot;attractionName&quot;) final String attractionName) {
+<span class="nc" id="L126">    	List&lt;TripDeal&gt; tripDeals = tourGuideService.getTripDeals(userId, attractionName);</span>
+<span class="nc" id="L127">    	return tripDeals;</span>
+    }
+    
+    
+
+	
+
+    /*
+   	 * 
+   	 * API TourGuideUser
+   	 * 
+   	 */
+
+	/*
+	 * Read - get user preferences 
+	 * @param userId UUID
+	 * @return the object to update
+	 */
+
+	@GetMapping(&quot;/getUserPreferences/{userId}&quot;)
+	public UserPreferences getUserPreferences(@PathVariable(&quot;userId&quot;) final UUID userId) {
+<span class="nc" id="L148">		UserPreferences userPreferences = tourGuideService.getUserPreferences(userId);</span>
+<span class="nc" id="L149">		return userPreferences;</span>
+	}
+
+	/*
+	 * Create - Save or modify user preferences
+	 * @param userPreferencesId UUID
+	 * @return the object saved 
+	 */
+	@PostMapping(&quot;/saveUserPreferences/{userId}&quot;)
+	public UserPreferences saveUserPreferences(@PathVariable(&quot;userId&quot;) final UUID userId) {
+<span class="nc" id="L159">		UserPreferences userPreferences = tourGuideService.saveUserPreferences(userId);</span>
+<span class="nc" id="L160">		return userPreferences;</span>
+	}
+
+   
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

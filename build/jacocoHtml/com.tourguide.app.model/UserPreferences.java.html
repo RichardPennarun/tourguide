@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserPreferences.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">com.tourguide.app.model</a> &gt; <span class="el_source">UserPreferences.java</span></div><h1>UserPreferences.java</h1><pre class="source lang-java linenums">package com.tourguide.app.model;
+
+import java.util.Currency;
+import java.util.UUID;
+
+import javax.money.CurrencyUnit;
+
+import org.javamoney.moneta.Money;
+
+public class UserPreferences {
+	
+	private UUID id;
+	private UUID userId;
+	private Currency currency;
+	private int attractionProximity;
+	private Money lowerPricePoint;
+	private Money highPricePoint;
+	private int nightsStay;
+	private int numberOfAdults;
+	private int numberOfChildren;
+	
+	public UserPreferences() {
+<span class="fc" id="L23">		super();</span>
+<span class="fc" id="L24">	}</span>
+
+	public UserPreferences(UUID id, UUID userId, Currency currency, int attractionProximity, Money lowerPricePoint,
+			Money highPricePoint, int nightsStay, int numberOfAdults, int numberOfChildren) {
+<span class="fc" id="L28">		super();</span>
+<span class="fc" id="L29">		this.id = id;</span>
+<span class="fc" id="L30">		this.userId = userId;</span>
+<span class="fc" id="L31">		this.currency = currency;</span>
+<span class="fc" id="L32">		this.attractionProximity = attractionProximity;</span>
+<span class="fc" id="L33">		this.lowerPricePoint = lowerPricePoint;</span>
+<span class="fc" id="L34">		this.highPricePoint = highPricePoint;</span>
+<span class="fc" id="L35">		this.nightsStay = nightsStay;</span>
+<span class="fc" id="L36">		this.numberOfAdults = numberOfAdults;</span>
+<span class="fc" id="L37">		this.numberOfChildren = numberOfChildren;</span>
+<span class="fc" id="L38">	}</span>
+
+	public UUID getId() {
+<span class="fc" id="L41">		return id;</span>
+	}
+
+	public void setId(UUID id) {
+<span class="nc" id="L45">		this.id = id;</span>
+<span class="nc" id="L46">	}</span>
+
+	public UUID getUserId() {
+<span class="fc" id="L49">		return userId;</span>
+	}
+
+	public void setUserId(UUID userId) {
+<span class="fc" id="L53">		this.userId = userId;</span>
+<span class="fc" id="L54">	}</span>
+	
+	
+
+	public Currency getCurrency() {
+<span class="fc" id="L59">		return currency;</span>
+	}
+
+	public void setCurrency(Currency currency) {
+<span class="fc" id="L63">		this.currency = currency;</span>
+<span class="fc" id="L64">	}</span>
+
+	public int getAttractionProximity() {
+<span class="fc" id="L67">		return attractionProximity;</span>
+	}
+
+	public void setAttractionProximity(int attractionProximity) {
+<span class="fc" id="L71">		this.attractionProximity = attractionProximity;</span>
+<span class="fc" id="L72">	}</span>
+
+	public Money getLowerPricePoint() {
+<span class="fc" id="L75">		return lowerPricePoint;</span>
+	}
+
+	public void setLowerPricePoint(Money lowerPricePoint) {
+<span class="fc" id="L79">		this.lowerPricePoint = lowerPricePoint;</span>
+<span class="fc" id="L80">	}</span>
+
+	public Money getHighPricePoint() {
+<span class="fc" id="L83">		return highPricePoint;</span>
+	}
+
+	public void setHighPricePoint(Money highPricePoint) {
+<span class="fc" id="L87">		this.highPricePoint = highPricePoint;</span>
+<span class="fc" id="L88">	}</span>
+
+	public int getNightsStay() {
+<span class="fc" id="L91">		return nightsStay;</span>
+	}
+
+	public void setNightsStay(int nightsStay) {
+<span class="fc" id="L95">		this.nightsStay = nightsStay;</span>
+<span class="fc" id="L96">	}</span>
+
+	public int getNumberOfAdults() {
+<span class="fc" id="L99">		return numberOfAdults;</span>
+	}
+
+	public void setNumberOfAdults(int numberOfAdults) {
+<span class="fc" id="L103">		this.numberOfAdults = numberOfAdults;</span>
+<span class="fc" id="L104">	}</span>
+
+	public int getNumberOfChildren() {
+<span class="fc" id="L107">		return numberOfChildren;</span>
+	}
+
+	public void setNumberOfChildren(int numberOfChildren) {
+<span class="fc" id="L111">		this.numberOfChildren = numberOfChildren;</span>
+<span class="fc" id="L112">	}</span>
+	
+	
+	
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

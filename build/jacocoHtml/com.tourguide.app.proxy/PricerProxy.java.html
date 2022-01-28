@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PricerProxy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">com.tourguide.app.proxy</a> &gt; <span class="el_source">PricerProxy.java</span></div><h1>PricerProxy.java</h1><pre class="source lang-java linenums">package com.tourguide.app.proxy;
+
+import java.util.List;
+
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import com.tourguide.app.model.TripDeal;
+import com.tourguide.app.model.TripRequest;
+
+@Component
+<span class="fc" id="L16">public class PricerProxy {</span>
+	
+	public List&lt;TripDeal&gt; getTripDeals(TripRequest tripRequest) {
+<span class="fc" id="L19">		String baseApiUrl = &quot;http://localhost:9008&quot;;</span>
+<span class="fc" id="L20">		String getTripDealsUrl = baseApiUrl + &quot;/getTripDeals&quot;;</span>
+<span class="fc" id="L21">		RestTemplate restTemplate = new RestTemplate();</span>
+<span class="fc" id="L22">		HttpEntity&lt;TripRequest&gt; request = new HttpEntity&lt;TripRequest&gt;(tripRequest);</span>
+<span class="fc" id="L23">		ResponseEntity&lt;List&lt;TripDeal&gt;&gt; response = restTemplate.exchange(</span>
+				getTripDealsUrl, 
+				HttpMethod.POST, 
+				request,
+<span class="fc" id="L27">				new ParameterizedTypeReference&lt;List&lt;TripDeal&gt;&gt;() {}</span>
+			);
+<span class="fc" id="L29">		return response.getBody();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

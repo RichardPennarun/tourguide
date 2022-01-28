@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TripRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">com.tourguide.app.model</a> &gt; <span class="el_source">TripRequest.java</span></div><h1>TripRequest.java</h1><pre class="source lang-java linenums">package com.tourguide.app.model;
+
+import java.util.Date;
+import java.util.Currency;
+import java.util.UUID;
+
+import javax.money.CurrencyUnit;
+
+public class TripRequest {
+	
+	private UUID id;
+	private Date requestDate;
+	private UUID userId;
+	private int userRewardPoints;
+	private UUID attractionId;
+	private String attractionName;
+	private int attractionRewardpoints;
+	private Currency currency;
+	private int nightsStay;
+	private int numberOfAdults;
+	private int numberOfChildren;
+	
+    public TripRequest() {
+<span class="fc" id="L24">		super();</span>
+<span class="fc" id="L25">	}</span>
+
+	public TripRequest(UUID id, Date requestDate2, UUID userId, int userRewardPoints, UUID attractionId, 
+			String attractionName, int attractionRewardpoints, Currency currency, int nightsStay, int numberOfAdults,
+			int numberOfChildren) {
+<span class="fc" id="L30">		super();</span>
+<span class="fc" id="L31">		this.id = id;</span>
+<span class="fc" id="L32">		this.requestDate = requestDate2;</span>
+<span class="fc" id="L33">		this.userId = userId;</span>
+<span class="fc" id="L34">		this.userRewardPoints = userRewardPoints;</span>
+<span class="fc" id="L35">		this.attractionId = attractionId;</span>
+<span class="fc" id="L36">		this.attractionName = attractionName;</span>
+<span class="fc" id="L37">		this.attractionRewardpoints = attractionRewardpoints;</span>
+<span class="fc" id="L38">		this.currency = currency;</span>
+<span class="fc" id="L39">		this.nightsStay = nightsStay;</span>
+<span class="fc" id="L40">		this.numberOfAdults = numberOfAdults;</span>
+<span class="fc" id="L41">		this.numberOfChildren = numberOfChildren;</span>
+<span class="fc" id="L42">	}</span>
+	
+	public UUID getId() {
+<span class="fc" id="L45">		return id;</span>
+	}
+	public void setId(UUID id) {
+<span class="fc" id="L48">		this.id = id;</span>
+<span class="fc" id="L49">	}</span>
+	
+	public Date getRequestDate() {
+<span class="fc" id="L52">		return requestDate;</span>
+	}
+
+	public void setRequestDate(Date requestDate) {
+<span class="fc" id="L56">		this.requestDate = requestDate;</span>
+<span class="fc" id="L57">	}</span>
+
+	public UUID getUserId() {
+<span class="fc" id="L60">		return userId;</span>
+	}
+	public void setUserId(UUID userId) {
+<span class="fc" id="L63">		this.userId = userId;</span>
+<span class="fc" id="L64">	}</span>
+	public int getUserRewardPoints() {
+<span class="fc" id="L66">		return userRewardPoints;</span>
+	}
+	public void setUserRewardPoints(int userRewardPoints) {
+<span class="fc" id="L69">		this.userRewardPoints = userRewardPoints;</span>
+<span class="fc" id="L70">	}</span>
+	public UUID getAttractionId() {
+<span class="fc" id="L72">		return attractionId;</span>
+	}
+	public void setAttractionId(UUID attractionId) {
+<span class="fc" id="L75">		this.attractionId = attractionId;</span>
+<span class="fc" id="L76">	}</span>
+	public String getAttractionName() {
+<span class="fc" id="L78">		return attractionName;</span>
+	}
+	public void setAttractionName(String attractionName) {
+<span class="fc" id="L81">		this.attractionName = attractionName;</span>
+<span class="fc" id="L82">	}</span>
+	public int getAttractionRewardpoints() {
+<span class="fc" id="L84">		return attractionRewardpoints;</span>
+	}
+	public void setAttractionRewardpoints(int attractionRewardpoints) {
+<span class="fc" id="L87">		this.attractionRewardpoints = attractionRewardpoints;</span>
+<span class="fc" id="L88">	}</span>
+	public Currency getCurrency() {
+<span class="fc" id="L90">		return currency;</span>
+	}
+
+	public void setCurrency(Currency currency) {
+<span class="fc" id="L94">		this.currency = currency;</span>
+<span class="fc" id="L95">	}</span>
+
+	public int getNightsStay() {
+<span class="fc" id="L98">		return nightsStay;</span>
+	}
+	public void setNightsStay(int nightsStay) {
+<span class="fc" id="L101">		this.nightsStay = nightsStay;</span>
+<span class="fc" id="L102">	}</span>
+	public int getNumberOfAdults() {
+<span class="fc" id="L104">		return numberOfAdults;</span>
+	}
+	public void setNumberOfAdults(int numberOfAdults) {
+<span class="fc" id="L107">		this.numberOfAdults = numberOfAdults;</span>
+<span class="fc" id="L108">	}</span>
+	public int getNumberOfChildren() {
+<span class="fc" id="L110">		return numberOfChildren;</span>
+	}
+	public void setNumberOfChildren(int numberOfChildren) {
+<span class="fc" id="L113">		this.numberOfChildren = numberOfChildren;</span>
+<span class="fc" id="L114">	}</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

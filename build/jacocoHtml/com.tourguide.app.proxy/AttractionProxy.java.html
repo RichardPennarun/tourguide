@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AttractionProxy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">com.tourguide.app.proxy</a> &gt; <span class="el_source">AttractionProxy.java</span></div><h1>AttractionProxy.java</h1><pre class="source lang-java linenums">package com.tourguide.app.proxy;
+
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import com.tourguide.app.CustomProperties;
+import com.tourguide.app.model.Attraction;
+import com.tourguide.app.model.Reward;
+import com.tourguide.app.model.VisitedLocation;
+
+@Component
+<span class="fc" id="L20">public class AttractionProxy {</span>
+
+	@Autowired
+	private CustomProperties props;
+	//private CustomProperties props = new CustomProperties();
+
+	
+	public List&lt;Attraction&gt; getNearByAttractions(VisitedLocation visitedLocation) {
+<span class="fc" id="L28">		String baseApiUrl = &quot;http://localhost:9007&quot;;</span>
+<span class="fc" id="L29">		String getNearByAttractionsUrl = baseApiUrl + &quot;/getNearByAttractions&quot;;</span>
+<span class="fc" id="L30">		RestTemplate restTemplate = new RestTemplate();</span>
+<span class="fc" id="L31">		HttpEntity&lt;VisitedLocation&gt; request = new HttpEntity&lt;VisitedLocation&gt;(visitedLocation);</span>
+<span class="fc" id="L32">		ResponseEntity&lt;List&lt;Attraction&gt;&gt; response = restTemplate.exchange(</span>
+				getNearByAttractionsUrl, 
+				HttpMethod.POST, 
+				request,
+<span class="fc" id="L36">				new ParameterizedTypeReference&lt;List&lt;Attraction&gt;&gt;() {}</span>
+			);
+<span class="fc" id="L38">		return response.getBody();</span>
+	}
+	
+	
+	public Attraction getRewardPointsByAttraction(String attractionName) {
+<span class="fc" id="L43">		String baseApiUrl = &quot;http://localhost:9007&quot;;</span>
+<span class="fc" id="L44">		String getRewardPointsByAttractionUrl = baseApiUrl + &quot;/getRewardPointsByAttraction/&quot; + attractionName;</span>
+<span class="fc" id="L45">		RestTemplate restTemplate = new RestTemplate();</span>
+<span class="fc" id="L46">		ResponseEntity&lt;Attraction&gt; response = restTemplate.exchange(</span>
+				getRewardPointsByAttractionUrl, 
+				HttpMethod.GET, 
+				null,
+				Attraction.class
+			);
+<span class="fc" id="L52">		return response.getBody();</span>
+	}
+	
+	
+	public List&lt;Reward&gt; getRewardsByUser(UUID userId) {
+<span class="fc" id="L57">		String baseApiUrl = &quot;http://localhost:9007&quot;;</span>
+<span class="fc" id="L58">		String getRewardsByUserUrl = baseApiUrl + &quot;/getRewardsByUser/&quot; + userId;</span>
+<span class="fc" id="L59">		RestTemplate restTemplate = new RestTemplate();</span>
+<span class="fc" id="L60">		ResponseEntity&lt;List&lt;Reward&gt;&gt; response = restTemplate.exchange(</span>
+				getRewardsByUserUrl, 
+				HttpMethod.GET, 
+				null,
+<span class="fc" id="L64">				new ParameterizedTypeReference&lt;List&lt;Reward&gt;&gt;() {}</span>
+			);
+		
+<span class="fc" id="L67">		return response.getBody();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
